@@ -41,6 +41,7 @@ class _LoginInputState extends State<LoginInput> {
       child: TextFormField(
         controller: _editingController,
         onChanged: widget.onTextChanged,
+        obscureText: widget.type == TextInputType.visiblePassword,
         decoration: InputDecoration(
           labelText: widget.label,
           border: OutlineInputBorder(

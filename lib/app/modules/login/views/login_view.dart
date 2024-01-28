@@ -47,20 +47,15 @@ class LoginView extends GetView<LoginController> {
                   },
                 ),
                 const SizedBox(height: 12),
-                // Align(
-                //   alignment: Alignment.centerRight,
-                //   child: TextButton(
-                //     onPressed: () {
-                //       // Add logic for "Mot de passe oublié"
-                //       Navigator.of(context).push(
-                //         MaterialPageRoute(
-                //           builder: (_) => const PasswordRecoveryPage(),
-                //         ),
-                //       );
-                //     },
-                //     child: const Text('Mot de passe oublié ?'),
-                //   ),
-                // ),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () {
+                      // Add logic for "Mot de passe oublié"
+                    },
+                    child: const Text('Mot de passe oublié ?'),
+                  ),
+                ),
                 const SizedBox(height: 30),
                 ElevatedButton(
                   onPressed: () {
@@ -121,15 +116,27 @@ class LoginView extends GetView<LoginController> {
                 ),
                 const SizedBox(height: 25),
                 const Text(
-                  "Pas de compte ? S’inscrire",
+                  "Pas de compte ?",
                   style: TextStyle(
-                    color: Color(0xff1B3F99),
                     fontSize: 15,
                     fontStyle: FontStyle.italic,
-                    decoration: TextDecoration
-                        .underline, // Souligner le texte pour indiquer que c'est un lien
                   ),
-                )
+                ),
+                TextButton(
+                  onPressed: () {
+                    Get.toNamed('/register');
+                  },
+                  child: const Text(
+                    "S'inscrire",
+                    style: TextStyle(
+                      color: Color(0xff1B3F99),
+                      fontSize: 15,
+                      fontStyle: FontStyle.italic,
+                      decoration: TextDecoration
+                          .underline, // Souligner le texte pour indiquer que c'est un lien
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

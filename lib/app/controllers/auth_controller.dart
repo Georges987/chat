@@ -34,12 +34,15 @@ class AuthController extends GetxController {
     super.onClose();
   }
 
-  void signUp(String email, String password) async {
+  Future<AuthUser?> signUp(String email, String password) async {
     AuthUser? user = await _authService.signUp(email, password);
     if (user != null) {
       // Utilisateur enregistré avec succès
+      user_storage.saveUser(user.displayName!, user.email!);
+      return user;
     } else {
       // Erreur lors de l'enregistrement
+      return null;
     }
   }
 
@@ -47,11 +50,11 @@ class AuthController extends GetxController {
     AuthUser? user = await _authService.signIn(email, password);
     if (user != null) {
       // Utilisateur connecté avec succès
-      user_storage.saveUser(user.displayName!, user.email!, password);
+      user_storage.saveUser(user.displayName!, user.email!);
       return user;
     } else {
       // Erreur lors de la connexion
-      return user;
+      return null;
     }
   }
 

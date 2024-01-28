@@ -29,8 +29,8 @@ class SplashView extends GetView<SplashController> {
           ),
           Obx(
             () => Text(
-              controller.count.string,
-              style: TextStyle(
+              controller.version.value,
+              style: const TextStyle(
                 fontSize: 10,
                 fontWeight: FontWeight.normal,
               ),
