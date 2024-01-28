@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:chat/app/data/models/auth_user_model.dart';
 import 'package:chat/app/services/auth_services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
