@@ -2,7 +2,6 @@ import 'package:chat/app/components/login_input.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 
 import '../controllers/register_controller.dart';
 
