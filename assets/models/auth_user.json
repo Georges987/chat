@@ -1,5 +1,8 @@
 {
-    "uid" : "1",
-    "username" : "John",
-    "email" : "john@mail.com"
+    "uid": "idUtilisateur",
+    "displayName": "Nom user",
+    "email": "utilisateur@exemple.com",
+    "photoURL": "http://chemin/vers/photo.jpg",
+    "emailVerified": true,
+    "phoneNumber": "+11234567890"
 }

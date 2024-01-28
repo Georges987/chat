@@ -1,3 +1,4 @@
+import 'package:chat/app/controllers/user_storage.dart';
 import 'package:chat/app/data/models/auth_user_model.dart';
 import 'package:chat/app/services/auth_services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -7,6 +8,16 @@ class AuthController extends GetxController {
   //TODO: Implement AuthController
 
   final AuthService _authService = AuthService();
+
+  final RxBool _obscureText = true.obs;
+
+  bool get obscureText => _obscureText.value;
+
+  void changeObscureText() {
+    _obscureText.value = !_obscureText.value;
+  }
+
+  final user_storage = Get.put(UserStorage());
 
   @override
   void onInit() {
@@ -36,6 +47,7 @@ class AuthController extends GetxController {
     AuthUser? user = await _authService.signIn(email, password);
     if (user != null) {
       // Utilisateur connecté avec succès
+      user_storage.saveUser(user.displayName!, user.email!, password);
       return user;
     } else {
       // Erreur lors de la connexion
