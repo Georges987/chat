@@ -12,16 +12,6 @@ class SettingView extends GetView<SettingController> {
       appBar: AppBar(
         backgroundColor: Colors.blue,
         title: const Text('Paramètres'),
-        actions: [
-          IconButton(
-            color: Colors.white,
-            iconSize: 25,
-            icon: const Icon(Icons.notifications),
-            onPressed: () {
-              // Ajoutez ici la logique pour gérer les notifications
-            },
-          ),
-        ],
       ),
       body: ListView(
         shrinkWrap: true,

@@ -28,9 +28,9 @@ class SplashController extends GetxController {
   void checkAuthentication() {
     authController.authStateChanges.listen((user) {
       if (user != null) {
-        Get.offNamed('/home');
+        Get.offAndToNamed('/home');
       } else {
-        Get.offNamed('/login');
+        Get.offAndToNamed('/login');
       }
     });
   }

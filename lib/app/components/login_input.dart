@@ -20,9 +20,10 @@ class _LoginInputState extends State<LoginInput> {
   final TextEditingController _editingController = TextEditingController();
 
   @override
-  void dispose() {
-    _editingController.dispose();
-    super.dispose();
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _editingController.text = widget.init;
   }
 
   @override
@@ -43,7 +44,7 @@ class _LoginInputState extends State<LoginInput> {
       child: TextFormField(
         controller: _editingController,
         onChanged: widget.onTextChanged,
-        initialValue: widget.init,
+        //initialValue: widget.init ?? '',
         obscureText: widget.type == TextInputType.visiblePassword,
         decoration: InputDecoration(
           labelText: widget.label,

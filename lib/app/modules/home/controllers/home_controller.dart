@@ -1,7 +1,8 @@
 import 'package:chat/app/controllers/auth_controller.dart';
-import 'package:chat/app/modules/home/views/friends_view.dart';
+import 'package:chat/app/modules/friend/views/friend_view.dart';
 import 'package:chat/app/modules/home/views/homepage_view.dart';
-import 'package:chat/app/modules/home/views/notification_view.dart';
+import 'package:chat/app/modules/message/views/message_view.dart';
+import 'package:chat/app/modules/notification/views/notification_view.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
@@ -13,7 +14,8 @@ class HomeController extends GetxController {
 
   final pages = [
     const HomepageView(),
-    const FriendsView(),
+    const MessageView(),
+    const FriendView(),
     const NotificationView(),
   ].obs;
 

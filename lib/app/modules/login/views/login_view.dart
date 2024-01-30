@@ -29,7 +29,7 @@ class LoginView extends GetView<LoginController> {
                 const SizedBox(height: 100),
                 LoginInput(
                   label: "Email",
-                  init: controller.emailController.text,
+                  init: controller.userStorage.email ?? '',
                   type: TextInputType.emailAddress,
                   onTextChanged: (text) {
                     // Faire quelque chose avec le texte du mot de passe
@@ -40,7 +40,7 @@ class LoginView extends GetView<LoginController> {
                 const SizedBox(height: 20),
                 LoginInput(
                   label: "Mot de passe",
-                  init: controller.passwordController.text,
+                  init: controller.userStorage.password ?? '',
                   type: TextInputType.visiblePassword,
                   onTextChanged: (text) {
                     // Faire quelque chose avec le texte du mot de passe

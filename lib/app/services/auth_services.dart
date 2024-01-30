@@ -2,12 +2,12 @@ import 'package:chat/app/data/models/auth_user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth auth = FirebaseAuth.instance;
 
   // Méthode pour s'inscrire
   Future<AuthUser?> signUp(String email, String password) async {
     try {
-      UserCredential result = await _auth.createUserWithEmailAndPassword(
+      UserCredential result = await auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -24,7 +24,7 @@ class AuthService {
   // Méthode pour se connecter
   Future<AuthUser?> signIn(String email, String password) async {
     try {
-      UserCredential result = await _auth.signInWithEmailAndPassword(
+      UserCredential result = await auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -40,15 +40,15 @@ class AuthService {
 
   // Méthode pour se déconnecter
   Future<void> signOut() async {
-    await _auth.signOut();
+    await auth.signOut();
   }
 
   // Méthode pour vérifier l'état de l'authentification
-  Stream<User?> get authStateChanges => _auth.authStateChanges();
+  Stream<User?> get authStateChanges => auth.authStateChanges();
 
   // Méthode pour récupérer l'utilisateur connecté
-  User? get currentUser => _auth.currentUser;
+  User? get currentUser => auth.currentUser;
 
   // Méthode pour vérifier si l'utilisateur est connecté
-  bool get isAuth => _auth.currentUser != null;
+  bool get isAuth => auth.currentUser != null;
 }

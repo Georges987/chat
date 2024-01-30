@@ -53,13 +53,13 @@ class LoginController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    _emailController.text = userStorage.email ?? '';
+    _passwordController.text = userStorage.password ?? '';
   }
 
   @override
   void onReady() {
     super.onReady();
-    _emailController.text = userStorage.email ?? '';
-    _passwordController.text = userStorage.password ?? '';
 
     _emailController.addListener(() {
       userStorage.saveEmail(_emailController.text);
