@@ -29,6 +29,7 @@ class LoginView extends GetView<LoginController> {
                 const SizedBox(height: 100),
                 LoginInput(
                   label: "Email",
+                  init: controller.emailController.text,
                   type: TextInputType.emailAddress,
                   onTextChanged: (text) {
                     // Faire quelque chose avec le texte du mot de passe
@@ -39,6 +40,7 @@ class LoginView extends GetView<LoginController> {
                 const SizedBox(height: 20),
                 LoginInput(
                   label: "Mot de passe",
+                  init: controller.passwordController.text,
                   type: TextInputType.visiblePassword,
                   onTextChanged: (text) {
                     // Faire quelque chose avec le texte du mot de passe
@@ -83,36 +85,29 @@ class LoginView extends GetView<LoginController> {
                       fontStyle: FontStyle.italic),
                 ),
                 const SizedBox(height: 25),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    InkWell(
-                      onTap: () {},
-                      child: Image.asset(
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.fromLTRB(40, 18, 40, 18),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
                         "assets/images/icons/google.png",
                         width: 30.0,
                         height: 30.0,
                       ),
-                    ),
-                    const SizedBox(width: 20),
-                    InkWell(
-                      onTap: () {},
-                      child: Image.asset(
-                        "assets/images/icons/apple-logo.png",
-                        width: 30.0,
-                        height: 30.0,
+                      const SizedBox(width: 20),
+                      const Text(
+                        'Google',
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
                       ),
-                    ),
-                    const SizedBox(width: 20),
-                    InkWell(
-                      onTap: () {},
-                      child: Image.asset(
-                        "assets/images/icons/facebook.png",
-                        width: 30.0,
-                        height: 30.0,
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 25),
                 const Text(

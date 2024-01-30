@@ -4,10 +4,12 @@ class LoginInput extends StatefulWidget {
   const LoginInput(
       {super.key,
       required this.label,
+      required this.init,
       required this.type,
       required this.onTextChanged});
 
   final String label;
+  final String init;
   final TextInputType type;
   final void Function(String) onTextChanged;
   @override
@@ -41,6 +43,7 @@ class _LoginInputState extends State<LoginInput> {
       child: TextFormField(
         controller: _editingController,
         onChanged: widget.onTextChanged,
+        initialValue: widget.init,
         obscureText: widget.type == TextInputType.visiblePassword,
         decoration: InputDecoration(
           labelText: widget.label,

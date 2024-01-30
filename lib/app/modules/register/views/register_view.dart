@@ -36,6 +36,7 @@ class RegisterView extends GetView<RegisterController> {
                   const SizedBox(height: 25),
                   LoginInput(
                     label: "Nom",
+                    init: controller.nomPrenomController.text,
                     type: TextInputType.name,
                     onTextChanged: (text) {
                       controller.nomPrenomController.text = text;
@@ -45,6 +46,7 @@ class RegisterView extends GetView<RegisterController> {
                   const SizedBox(height: 30),
                   LoginInput(
                     label: "Email",
+                    init: controller.emailController.text,
                     type: TextInputType.emailAddress,
                     onTextChanged: (text) {
                       controller.emailController.text = text;
@@ -54,6 +56,7 @@ class RegisterView extends GetView<RegisterController> {
                   const SizedBox(height: 30),
                   LoginInput(
                     label: "Mot de pass",
+                    init: controller.passwordController.text,
                     type: TextInputType.visiblePassword,
                     onTextChanged: (text) {
                       controller.passwordController.text = text;
@@ -83,7 +86,7 @@ class RegisterView extends GetView<RegisterController> {
                       } else {
                         Get.snackbar(
                           'Erreur',
-                          'Veuillez accepter les conditions',
+                          'Veuillez accepter les conditions \nd\'utilisation pour pousuivre',
                           snackPosition: SnackPosition.BOTTOM,
                           backgroundColor: Colors.red,
                           colorText: Colors.white,
@@ -137,14 +140,27 @@ class RegisterView extends GetView<RegisterController> {
                   ),
                   const SizedBox(height: 25),
                   const Text(
-                    "Pas de compte ? S’inscrire",
+                    "Déjà inscrit ?",
                     style: TextStyle(
-                      color: Color(0xff1B3F99),
+                      fontSize: 15,
                       fontStyle: FontStyle.italic,
-                      decoration: TextDecoration
-                          .underline, // Souligner le texte pour indiquer que c'est un lien
                     ),
-                  )
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Get.toNamed('/login');
+                    },
+                    child: const Text(
+                      "Se connecter",
+                      style: TextStyle(
+                        color: Color(0xff1B3F99),
+                        fontSize: 15,
+                        fontStyle: FontStyle.italic,
+                        decoration: TextDecoration
+                            .underline, // Souligner le texte pour indiquer que c'est un lien
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
