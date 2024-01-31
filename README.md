@@ -19,6 +19,6 @@ Si vous souhaitez compiler le projet (apk ou bundle), vous pouvez utiliser les c
 
 - Georges AYENI
 - BOTON Elfried
-- 
+- ADOSSOU Kevin
 - 
 - 
