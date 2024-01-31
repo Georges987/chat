@@ -14,7 +14,7 @@ class HomeController extends GetxController {
 
   final pages = [
     const HomepageView(),
-    const MessageView(),
+    MessageView(),
     const FriendView(),
     const NotificationView(),
   ].obs;

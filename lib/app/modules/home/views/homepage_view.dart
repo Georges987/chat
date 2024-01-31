@@ -10,30 +10,22 @@ class HomepageView extends GetView {
     return SingleChildScrollView(
       child: Column(
         children: [
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: List.generate(10, (index) {
-                return Container(
-                  margin: const EdgeInsets.all(6),
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(80, 122, 139, 185),
-                    borderRadius: BorderRadius.circular(50),
-                  ),
-                  child: InkWell(
-                    onTap: () {
-                      // Going to message page
-                    },
-                    child: CircleAvatar(
-                      backgroundColor: Colors.white,
-                      child: Image.asset(
-                        "assets/images/content/avatar.png",
-                      ),
-                    ),
-                  ),
-                );
-              }),
-            ),
+          Row(
+            children: [
+              const CircleAvatar(
+                radius: 30,
+                backgroundImage: NetworkImage(
+                    'https://images.unsplash.com/photo-1622835047087-4b3b0f5b5b0f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hhdCUyMGJhY2tncm91bmQlMjBzdG9yZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80'),
+              ),
+              const SizedBox(width: 10),
+              Text(
+                controller.user!.email,
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: 10),
           Column(

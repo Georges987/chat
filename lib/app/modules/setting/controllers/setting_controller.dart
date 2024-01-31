@@ -6,6 +6,8 @@ class SettingController extends GetxController {
 
   final authcontroller = Get.find<AuthController>();
 
+  final user = Get.find<AuthController>().user;
+
   @override
   void onInit() {
     super.onInit();

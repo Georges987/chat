@@ -45,12 +45,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyCBwlDz9M56dpqJPosuCQUHV7lTL35mras',
-    appId: '1:93557244648:web:198a766c2b618b3eb5bf5d',
+    appId: '1:93557244648:web:deba46b5da8594deb5bf5d',
     messagingSenderId: '93557244648',
     projectId: 'chatt-e4ccc',
     authDomain: 'chatt-e4ccc.firebaseapp.com',
     storageBucket: 'chatt-e4ccc.appspot.com',
-    measurementId: 'G-EYDQ873JGV',
+    measurementId: 'G-7JNKMNRDWX',
   );
 
   static const FirebaseOptions android = FirebaseOptions(

@@ -18,7 +18,7 @@ class SettingView extends GetView<SettingController> {
         children: [
           ListTile(
             leading: const Icon(Icons.person),
-            title: const Text('Mon compte'),
+            title: Text(controller.user?.email ?? 'Unknown'),
             onTap: () {
               // Ajoutez ici la logique pour gérer les notifications
             },

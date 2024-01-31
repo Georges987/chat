@@ -2,6 +2,7 @@ import 'package:chat/app/controllers/user_storage.dart';
 import 'package:chat/app/data/models/auth_user_model.dart';
 import 'package:chat/app/services/auth_services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AuthController extends GetxController {
@@ -16,6 +17,8 @@ class AuthController extends GetxController {
   void changeObscureText() {
     _obscureText.value = !_obscureText.value;
   }
+
+  AuthUser? get user => AuthUser.fromFirebaseUser(_authService.currentUser);
 
   final user_storage = Get.put(UserStorage());
 
@@ -38,7 +41,15 @@ class AuthController extends GetxController {
     AuthUser? user = await _authService.signUp(email, password);
     if (user != null) {
       // Utilisateur enregistré avec succès
-      user_storage.saveUser(user.displayName!, user.email!);
+      user_storage.saveUser(user.email!, user.email!);
+
+      Get.snackbar(
+        'Inscription ${user.email}',
+        'Réussie',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.green,
+        colorText: Colors.white,
+      );
       return user;
     } else {
       // Erreur lors de l'enregistrement

@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../controllers/profil_controller.dart';
+import '../controllers/ami_controller.dart';
 
-class ProfilView extends GetView<ProfilController> {
-  const ProfilView({Key? key}) : super(key: key);
+class AmiView extends GetView<AmiController> {
+  const AmiView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(controller.authuser.toString()),
+        title: const Text('AmiView'),
         centerTitle: true,
       ),
       body: const Center(
         child: Text(
-          'ProfilView is working',
+          'AmiView is working',
           style: TextStyle(fontSize: 20),
         ),
       ),

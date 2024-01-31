@@ -1,4 +1,9 @@
 import 'package:get/get.dart';
+
+import '../modules/ami/bindings/ami_binding.dart';
+import '../modules/ami/views/ami_view.dart';
+import '../modules/dicussion/bindings/dicussion_binding.dart';
+import '../modules/dicussion/views/dicussion_view.dart';
 import '../modules/friend/bindings/friend_binding.dart';
 import '../modules/friend/views/friend_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -53,7 +58,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.MESSAGE,
-      page: () => const MessageView(),
+      page: () => MessageView(),
       binding: MessageBinding(),
     ),
     GetPage(
@@ -70,6 +75,16 @@ class AppPages {
       name: _Paths.FRIEND,
       page: () => const FriendView(),
       binding: FriendBinding(),
+    ),
+    GetPage(
+      name: _Paths.DICUSSION,
+      page: () => const DicussionView(),
+      binding: DicussionBinding(),
+    ),
+    GetPage(
+      name: _Paths.AMI,
+      page: () => const AmiView(),
+      binding: AmiBinding(),
     ),
   ];
 }

@@ -19,6 +19,7 @@ class LoginInput extends StatefulWidget {
 class _LoginInputState extends State<LoginInput> {
   final TextEditingController _editingController = TextEditingController();
 
+  bool _obscureText = true;
   @override
   void initState() {
     // TODO: implement initState
@@ -45,9 +46,23 @@ class _LoginInputState extends State<LoginInput> {
         controller: _editingController,
         onChanged: widget.onTextChanged,
         //initialValue: widget.init ?? '',
-        obscureText: widget.type == TextInputType.visiblePassword,
+        obscureText:
+            widget.type == TextInputType.visiblePassword && _obscureText,
         decoration: InputDecoration(
           labelText: widget.label,
+          suffixIcon: widget.type == TextInputType.visiblePassword
+              ? IconButton(
+                  onPressed: () {
+                    setState(() {
+                      _obscureText = !_obscureText;
+                    });
+                  },
+                  icon: Icon(
+                    _obscureText ? Icons.visibility : Icons.visibility_off,
+                    color: Colors.grey,
+                  ),
+                )
+              : null,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12.0),
           ),

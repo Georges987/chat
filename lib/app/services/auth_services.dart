@@ -1,5 +1,6 @@
 import 'package:chat/app/data/models/auth_user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 
 class AuthService {
   final FirebaseAuth auth = FirebaseAuth.instance;
@@ -11,6 +12,7 @@ class AuthService {
         email: email,
         password: password,
       );
+
       User? user = result.user;
       return user != null
           ? AuthUser(uid: user.uid, email: user.email ?? '')
@@ -33,7 +35,7 @@ class AuthService {
           ? AuthUser(uid: user.uid, email: user.email ?? '')
           : null;
     } catch (error) {
-      print(error.toString());
+      debugPrint("Erreur app : ${error.toString()}");
       return null;
     }
   }

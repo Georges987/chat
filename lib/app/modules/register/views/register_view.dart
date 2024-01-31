@@ -98,7 +98,7 @@ class RegisterView extends GetView<RegisterController> {
                       padding: const EdgeInsets.fromLTRB(40, 18, 40, 18),
                     ),
                     child: const Text(
-                      'Connexion',
+                      'Inscription',
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,

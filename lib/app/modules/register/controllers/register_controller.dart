@@ -1,10 +1,13 @@
 import 'package:chat/app/controllers/auth_controller.dart';
+import 'package:chat/app/controllers/online_database_controller.dart';
 import 'package:chat/app/controllers/user_storage.dart';
 import 'package:chat/app/data/models/auth_user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RegisterController extends GetxController {
+  final database = Get.put(OnlineDatabaseController(), permanent: true);
+
   final isAccepted = false.obs;
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _nomPrenomController = TextEditingController();
@@ -51,8 +54,16 @@ class RegisterController extends GetxController {
         _passwordController.text,
       );
 
+      if (user != null) {
+        await database.addUserToFirestore(
+          user.uid!,
+          _nomPrenomController.text,
+          user.email!,
+        );
+      }
+
       Get.snackbar(
-        'Inscription ${user!.displayName}',
+        'Inscription',
         'Réussie',
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.green,

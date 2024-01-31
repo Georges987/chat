@@ -1,9 +1,12 @@
+import 'package:chat/app/controllers/auth_controller.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 
 class FriendController extends GetxController {
-  //TODO: Implement FriendController
+  final AuthController authController = Get.find();
 
-  final count = 0.obs;
+  final users = FirebaseFirestore.instance.collection('users').snapshots();
+  
   @override
   void onInit() {
     super.onInit();
@@ -19,5 +22,5 @@ class FriendController extends GetxController {
     super.onClose();
   }
 
-  void increment() => count.value++;
+  // List of friends
 }
