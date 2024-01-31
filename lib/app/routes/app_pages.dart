@@ -1,11 +1,7 @@
 import 'package:get/get.dart';
 
-import '../modules/ami/bindings/ami_binding.dart';
-import '../modules/ami/views/ami_view.dart';
 import '../modules/dicussion/bindings/dicussion_binding.dart';
 import '../modules/dicussion/views/dicussion_view.dart';
-import '../modules/friend/bindings/friend_binding.dart';
-import '../modules/friend/views/friend_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -14,6 +10,8 @@ import '../modules/message/bindings/message_binding.dart';
 import '../modules/message/views/message_view.dart';
 import '../modules/notification/bindings/notification_binding.dart';
 import '../modules/notification/views/notification_view.dart';
+import '../modules/post/bindings/post_binding.dart';
+import '../modules/post/views/post_view.dart';
 import '../modules/profil/bindings/profil_binding.dart';
 import '../modules/profil/views/profil_view.dart';
 import '../modules/register/bindings/register_binding.dart';
@@ -72,19 +70,14 @@ class AppPages {
       binding: NotificationBinding(),
     ),
     GetPage(
-      name: _Paths.FRIEND,
-      page: () => const FriendView(),
-      binding: FriendBinding(),
-    ),
-    GetPage(
       name: _Paths.DICUSSION,
       page: () => const DicussionView(),
       binding: DicussionBinding(),
     ),
     GetPage(
-      name: _Paths.AMI,
-      page: () => const AmiView(),
-      binding: AmiBinding(),
+      name: _Paths.POST,
+      page: () => const PostView(),
+      binding: PostBinding(),
     ),
   ];
 }

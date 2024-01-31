@@ -67,10 +67,10 @@ class HomeView extends GetView<HomeController> {
                 icon: Icon(Icons.message),
                 label: "Messages",
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.people),
-                label: "Amis",
-              ),
+              // BottomNavigationBarItem(
+              //   icon: Icon(Icons.people),
+              //   label: "Amis",
+              // ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.notifications),
                 label: "Notifications",

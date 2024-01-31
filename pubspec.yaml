@@ -17,6 +17,7 @@ dependencies:
   get_storage: ^2.1.1
   image_picker: ^1.0.7
   path: ^1.8.3
+  permission_handler: ^11.2.0
 
 dev_dependencies: 
   flutter_lints: ^2.0.0

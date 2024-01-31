@@ -15,14 +15,6 @@ class OnlineDatabaseController extends GetxController {
     });
   }
 
-  Future<void> addPostWithoutImage(String post) async {
-    await firestore.collection("posts").add({
-      "post": post,
-      "uid": Get.find<AuthController>().user?.uid ?? "",
-      "time": DateTime.now(),
-    });
-  }
-
   Future<void> addComment(String comment, String postId) async {
     await firestore.collection("comments").add({
       "comment": comment,
