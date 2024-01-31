@@ -23,4 +23,4 @@ Si vous souhaitez compiler le projet (apk ou bundle), vous pouvez utiliser les c
 - KOUDJOUME Andréa
 - ETEKA Landry
 - BIO BERI Bilal
-- 
+- BOKO ASSOGBA junel
