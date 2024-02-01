@@ -20,6 +20,7 @@ class PostController extends GetxController {
       permission.value = true;
     } else if (await Permission.storage.isPermanentlyDenied) {
       openAppSettings();
+      update();
       permission.value = false;
     } else {
       permission.value = false;

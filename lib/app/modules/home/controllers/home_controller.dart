@@ -9,6 +9,8 @@ class HomeController extends GetxController {
 
   final userEmail = FirebaseAuth.instance.currentUser!.email.toString().obs;
 
+  // get all posts
+
   final currentIndex = 0.obs;
 
   final pages = [

@@ -37,6 +37,7 @@ class OnlineDatabaseController extends GetxController {
 
         // Affiche un message de succès ou fait d'autres actions nécessaires
         Get.snackbar('Succès', 'Le post a été ajouté avec succès');
+        Get.offAndToNamed('/home');
       } else {
         // Gère les erreurs potentielles lors de l'ajout du post
         debugPrint('Erreur lors de l\'ajout du post : $imageUrl');

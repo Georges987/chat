@@ -1,13 +1,40 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class PostCard extends StatefulWidget {
-  const PostCard({super.key});
+  const PostCard(
+      {super.key,
+      required this.uid,
+      required this.image,
+      required this.post,
+      required this.time});
+  final String uid;
+  final String image;
+  final String post;
+  final Timestamp time;
 
   @override
   State<PostCard> createState() => _PostCardState();
 }
 
 class _PostCardState extends State<PostCard> {
+  String username = '';
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    FirebaseFirestore.instance
+        .collection('users')
+        .where('uid', isEqualTo: widget.uid)
+        .get()
+        .then((value) => value.docs.forEach((element) {
+              debugPrint(element.data()['name']);
+              setState(() {
+                username = element.data()['name'];
+              });
+            }));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,9 +60,9 @@ class _PostCardState extends State<PostCard> {
                         width: 50,
                       ),
                       const SizedBox(width: 10),
-                      const Text(
-                        'Anais KPADE',
-                        style: TextStyle(
+                      Text(
+                        username,
+                        style: const TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                     ],
@@ -51,9 +78,12 @@ class _PostCardState extends State<PostCard> {
               children: [
                 Container(
                     decoration: BoxDecoration(
-                      image: const DecorationImage(
-                          image: AssetImage('assets/images/content/image2.png'),
-                          fit: BoxFit.cover),
+                      image: DecorationImage(
+                        image: NetworkImage(
+                          widget.image,
+                        ),
+                        fit: BoxFit.cover,
+                      ),
                       borderRadius: BorderRadius.circular(30),
                     ),
                     child: Column(
