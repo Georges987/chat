@@ -13,10 +13,6 @@ class HomepageView extends GetView<HomeController> {
       child: Column(
         children: [
           const SizedBox(height: 10),
-          ElevatedButton(
-              onPressed: () => {Get.toNamed('/post')},
-              child: const Text("Ajouter une nouvelle publication")),
-          const SizedBox(height: 10),
           StreamBuilder(
             stream: FirebaseFirestore.instance.collection('posts').snapshots(),
             builder:
@@ -26,7 +22,7 @@ class HomepageView extends GetView<HomeController> {
               }
 
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return CircularProgressIndicator(); // Affiche un indicateur de chargement pendant la récupération des données
+                return const CircularProgressIndicator(); // Affiche un indicateur de chargement pendant la récupération des données
               }
 
               // Affiche la liste des posts à partir des données Firestore
@@ -41,7 +37,6 @@ class HomepageView extends GetView<HomeController> {
                   String uid = data['uid'] ?? '';
                   Timestamp time = data['time'] ?? '';
 
-                  
                   return PostCard(
                     post: postContent,
                     image: imageUrl,

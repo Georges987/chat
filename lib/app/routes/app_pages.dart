@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/dicussion/bindings/dicussion_binding.dart';
 import '../modules/dicussion/views/dicussion_view.dart';
+import '../modules/friend/bindings/friend_binding.dart';
+import '../modules/friend/views/friend_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -20,6 +22,8 @@ import '../modules/setting/bindings/setting_binding.dart';
 import '../modules/setting/views/setting_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
+import '../modules/status_show/bindings/status_show_binding.dart';
+import '../modules/status_show/views/status_show_view.dart';
 
 part 'app_routes.dart';
 
@@ -78,6 +82,16 @@ class AppPages {
       name: _Paths.POST,
       page: () => const PostView(),
       binding: PostBinding(),
+    ),
+    GetPage(
+      name: _Paths.FRIEND,
+      page: () => const FriendView(),
+      binding: FriendBinding(),
+    ),
+    GetPage(
+      name: _Paths.STATUS_SHOW,
+      page: () => const StatusShowView(),
+      binding: StatusShowBinding(),
     ),
   ];
 }

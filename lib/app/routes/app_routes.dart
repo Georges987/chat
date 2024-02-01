@@ -13,6 +13,8 @@ abstract class Routes {
   static const NOTIFICATION = _Paths.NOTIFICATION;
   static const DICUSSION = _Paths.DICUSSION;
   static const POST = _Paths.POST;
+  static const FRIEND = _Paths.FRIEND;
+  static const STATUS_SHOW = _Paths.STATUS_SHOW;
 }
 
 abstract class _Paths {
@@ -27,4 +29,6 @@ abstract class _Paths {
   static const NOTIFICATION = '/notification';
   static const DICUSSION = '/dicussion';
   static const POST = '/post';
+  static const FRIEND = '/friend';
+  static const STATUS_SHOW = '/status-show';
 }

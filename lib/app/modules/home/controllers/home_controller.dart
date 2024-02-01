@@ -1,3 +1,4 @@
+import 'package:chat/app/modules/friend/views/friend_view.dart';
 import 'package:chat/app/modules/home/views/homepage_view.dart';
 import 'package:chat/app/modules/message/views/message_view.dart';
 import 'package:chat/app/modules/notification/views/notification_view.dart';
@@ -9,13 +10,12 @@ class HomeController extends GetxController {
 
   final userEmail = FirebaseAuth.instance.currentUser!.email.toString().obs;
 
-  // get all posts
-
   final currentIndex = 0.obs;
 
   final pages = [
     const HomepageView(),
     MessageView(),
+    const FriendView(),
     const NotificationView(),
   ].obs;
 

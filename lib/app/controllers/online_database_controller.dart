@@ -24,7 +24,7 @@ class OnlineDatabaseController extends GetxController {
       String postId = firestore.collection('posts').doc().id;
 
       // Télécharge l'image sur Firebase Storage et récupère l'URL
-      String? imageUrl = await _uploadImageToStorage(postId, image);
+      String? imageUrl = await uploadImageToStorage(postId, image);
 
       // Ajoute le post à Firestore avec l'URL de l'image
       if (imageUrl != null) {
@@ -52,7 +52,7 @@ class OnlineDatabaseController extends GetxController {
     }
   }
 
-  Future<String?> _uploadImageToStorage(String postId, File image) async {
+  Future<String?> uploadImageToStorage(String postId, File image) async {
     try {
       // Emplacement dans Firebase Storage où l'image sera stockée
       String storagePath =

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
 class PostCard extends StatefulWidget {
@@ -35,10 +36,26 @@ class _PostCardState extends State<PostCard> {
             }));
   }
 
+  String _formatTimeDifference(DateTime timestamp) {
+    final now = DateTime.now();
+    final difference = now.difference(timestamp);
+
+    if (difference.inDays > 0) {
+      return DateFormat('dd MMM').format(
+          timestamp); // Affiche la date si la différence est d'au moins un jour
+    } else if (difference.inHours > 0) {
+      return '${difference.inHours}h ago';
+    } else if (difference.inMinutes > 0) {
+      return '${difference.inMinutes}m ago';
+    } else {
+      return 'Just now';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 15, left: 20, right: 20, bottom: 3),
+      margin: const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 3),
       decoration: BoxDecoration(
         color: const Color(0xFFE6EEFA),
         borderRadius: BorderRadius.circular(50),
@@ -51,7 +68,7 @@ class _PostCardState extends State<PostCard> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(
-                      top: 15, left: 15, right: 15, bottom: 0),
+                      top: 10, left: 15, right: 15, bottom: 0),
                   child: Row(
                     children: [
                       Image.asset(
@@ -60,11 +77,21 @@ class _PostCardState extends State<PostCard> {
                         width: 50,
                       ),
                       const SizedBox(width: 10),
-                      Text(
-                        username,
-                        style: const TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
-                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            username,
+                            style: const TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            _formatTimeDifference(widget.time.toDate()),
+                            style: const TextStyle(
+                                fontSize: 10, fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      )
                     ],
                   ),
                 ),
@@ -101,7 +128,7 @@ class _PostCardState extends State<PostCard> {
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.all(15),
-                                  child: Row(
+                                  child: Column(
                                     children: [
                                       Row(
                                         children: [
