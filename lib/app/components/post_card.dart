@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
@@ -66,35 +67,42 @@ class _PostCardState extends State<PostCard> {
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: 10, left: 15, right: 15, bottom: 0),
-                  child: Row(
-                    children: [
-                      Image.asset(
-                        "assets/images/content/avatar.png",
-                        height: 50,
-                        width: 50,
-                      ),
-                      const SizedBox(width: 10),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            username,
-                            style: const TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            _formatTimeDifference(widget.time.toDate()),
-                            style: const TextStyle(
-                                fontSize: 10, fontWeight: FontWeight.bold),
-                          )
-                        ],
-                      )
-                    ],
+                InkWell(
+                  onTap: () => Get.toNamed('/status-show', parameters: {
+                    'image': widget.image,
+                    'post': widget.post,
+                    'postId': widget.uid,
+                  }),
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        top: 10, left: 15, right: 15, bottom: 0),
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          "assets/images/content/avatar.png",
+                          height: 50,
+                          width: 50,
+                        ),
+                        const SizedBox(width: 10),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              username,
+                              style: const TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              _formatTimeDifference(widget.time.toDate()),
+                              style: const TextStyle(
+                                  fontSize: 10, fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
                   ),
-                ),
+                )
               ],
             ),
           ),
